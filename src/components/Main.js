@@ -1,20 +1,24 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import CurrentProjects from "./CurrentProjects";
+import FutureProjects from "./FutureProjects";
+import BuildProject from "./BuildProject";
 
 export class Main extends Component {
   render() {
+    console.log("props", this.props.name);
     return (
       <main>
-        <button
-            className="btn"
-            onClick={() => this.handleClick()}
-          >
-            Current Projects
-          </button>
-          <button className="btn">Build Project</button>
-          <button className="btn">Future Projects</button>
+        {this.props.name === "currentProjects" ? (
+          <CurrentProjects />
+        ) : this.props.name === "futureProjects" ? (
+          <FutureProjects />
+        ) : this.props.name === 'buildProject' ? (
+        <BuildProject />
+        ) : 'Choose from Navigation Bar'
+      }
       </main>
-    )
+    );
   }
 }
 
-export default Main
+export default Main;
