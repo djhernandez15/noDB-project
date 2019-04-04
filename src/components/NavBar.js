@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Axios from "axios";
 
 export class NavBar extends Component {
   constructor(props) {
@@ -8,6 +9,11 @@ export class NavBar extends Component {
 
   handleClick(e) {
     this.props.handleClick(e.target.name);
+    // Axios.post('http://localhost:5050/api/currentProjects').then(results => {
+    //   toast.success('Yes');
+    // })
+    
+    
     // console.log("handleclick", e.target.name);
   }
   render() {

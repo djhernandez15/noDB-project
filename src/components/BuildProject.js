@@ -1,8 +1,30 @@
 import React, { Component } from "react";
-import ProjectCard from "./ProjectCard";
+import axios from "axios";
 
 export class BuildProject extends Component {
-  render() {
+    constructor(props){
+        super(props);
+        
+        this.state = {
+            futureProjects: []
+        };
+    }
+    
+    addProject() {
+        let project = {
+            jobSiteName: this.jobSiteName.value,
+            jobSiteImage: this.jobSiteImage.value,
+            jobSiteAddress: this.jobSiteAddress.value,
+            budget: this.budget.value,
+            gcNotes: this.gcNotes.value
+        };
+
+    axios.post('http://localhost:5050/api/futureProjects', project).then(response => {
+        console.log('yes');
+        this.setState({ futureProjects : response.data});
+    }
+    
+    render() {
     return (
       <form>          
         <label>
@@ -10,10 +32,9 @@ export class BuildProject extends Component {
           <input type="text" name="name" />
         </label>
 
-        <label>
-          JobSite Photo:
-          <input type="image" name="name" />
-        </label>
+        <image styling={{maxWidth: "100px",
+    maxHeight: "100px"}}>
+        </image>
 
         <label>
           Client Phone #
@@ -45,5 +66,6 @@ export class BuildProject extends Component {
     );
   }
 }
+
 
 export default BuildProject;
