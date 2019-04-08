@@ -4,35 +4,41 @@ import Axios from "axios";
 export class NavBar extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+
+    this.state ={
+      futureProjects: []
+    }
+    this.handleNavBar = this.handleNavBar.bind(this);
   }
 
-  handleClick(e) {
+
+
+  handleNavBar(e) {
     this.props.handleClick(e.target.name);
-    // Axios.post('http://localhost:5050/api/currentProjects').then(results => {
-    //   toast.success('Yes');
-    // })
-    
-    
-    // console.log("handleclick", e.target.name);
   }
+
   render() {
+    let { handleNavBar } = this;
     return (
       <nav>
         <button
           className="btn"
           name="currentProjects"
-          onClick={this.handleClick}
+          onClick={handleNavBar}
         >
           Current Projects
         </button>
-        <button className="btn" name="buildProject" onClick={this.handleClick}>
+        <button
+          className="btn"
+          name="buildProject"
+          onClick={handleNavBar}
+        >
           Build Project
         </button>
         <button
           className="btn"
           name="futureProjects"
-          onClick={this.handleClick}
+          onClick={handleNavBar}
         >
           Future Projects
         </button>

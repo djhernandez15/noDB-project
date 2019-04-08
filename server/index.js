@@ -1,19 +1,17 @@
 const express = require("express");
+const controllers = require("./controllers");
+
 const app = express();
 
 app.use(express.json());
 
-app.post("/api/futureProjects", );
+app.post("/api/futureProjects", controllers.postFutureProjects);
 
-app.get('/api/currentProjects', (req, res) => {
-    res.json(currentProjects);
-} );
+app.get("/api/futureProjects", controllers.getFutureProjects);
 
-app.put()
+app.delete("/api/futureProjects/:id", controllers.bidWon);
 
-app.delete('/api/futureProjects/:jobSiteName', (req, res) => {
-    res.json(futureProjects)
-})
+app.get("/api/currentProjects", controllers.getCurrentProjects);
 
 const PORT = 5050;
 

@@ -1,52 +1,9 @@
-import React, { Component } from "react";
-import axios from "axios";
+import React from 'react'
 
-export class BuildProject extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      jobSiteName: "",
-      jobSiteImage: "",
-      jobSiteAddress: "",
-      budget: "",
-      gcNotes: ""
-    };
-
-    this.change = this.change.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  change(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    axios.post("/api/futureProjects", {
-      jobSiteName: this.state.jobSiteName,
-      jobSiteImage: this.state.jobSiteImage,
-      jobSiteAddress: this.state.jobSiteAddress,
-      budget: this.state.budget,
-      gcNotes: this.state.gcNotes
-    })
-    .then(response => this.setState({
-      jobSiteName: "",
-      jobSiteImage: "",
-      jobSiteAddress: "",
-      budget: "",
-      gcNotes: ""
-    }));
-  }
-
-  render() {
-    let { change } = this;
-    let { onSubmit } = this;
-    return (
-      <div>
-              <form>
+export default function Form() {
+  return (
+    <div>
+      <form>
           <label>
             Project Name:
             <input
@@ -106,9 +63,6 @@ export class BuildProject extends Component {
             Stage
           </button>
         </form>
-      </div>
-    );
-  }
+    </div>
+  )
 }
-
-export default BuildProject;

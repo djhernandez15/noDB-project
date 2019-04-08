@@ -1,5 +1,5 @@
 body {
-  background: rgb(226, 213, 213);
+  background: rgb(133, 125, 125);
 }
 img {
   max-height: 150px;
@@ -21,6 +21,7 @@ nav {
 }
 main {
   height: 45vh;
+  padding: 15px;
 }
 .btn {
   height: 50px;
@@ -56,5 +57,4 @@ form {
 label {
   font-size: 20pt;
 }
-input {
-}
+

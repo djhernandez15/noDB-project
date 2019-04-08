@@ -1,23 +1,23 @@
 import React, { Component } from "react";
-import axios from 'axios';
+import "../ProjectCard.css";
+import axios from "axios";
 
 export class ProjectCard extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    
   }
-
-  
 
   render() {
     return (
       <article>
-        <h2>JobSite Name: </h2>
-        <img alt="jobsite pic" />
-        <h3>JobSite Address: </h3>
-        <h3>Budget: </h3>
-        <h3>GC Notes: </h3>
-        <button onClick={}>Mark Complete!</button>
+        <h3>Project Name: {this.props.jobSiteName}</h3>
+        <img src={this.props.jobSiteImage} alt="job pic" />
+        <h3>Address: {this.props.jobSiteAddress}</h3>
+        <h3>Budget: {this.props.budget}</h3>
+        <h3>Notes: {this.props.gcNotes}</h3>
+        {this.props.futureProjects ? (
+          <button onClick={this.props.deleteProject}>Bid Won!</button>
+        ) : null}
       </article>
     );
   }

@@ -15,7 +15,6 @@ export class Dashboard extends Component {
   }
 
   handleClick(name) {
-    //console.log(name)
     this.setState({
       name
     });

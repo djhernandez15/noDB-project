@@ -14,7 +14,7 @@ export class Main extends Component {
           <FutureProjects />
         ) : this.props.name === 'buildProject' ? (
         <BuildProject />
-        ) : 'Choose from Navigation Bar'
+        ) : 'Start Building!'
       }
       </main>
     );
