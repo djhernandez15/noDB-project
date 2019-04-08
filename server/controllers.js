@@ -24,13 +24,19 @@ const getCurrentProjects = (req, res) => {
   res.status(200).json(currentProjects);
 };
 
-const editNotes = (req, res) => {
-  res.status(200).json(currentProjects)
-}
+const markComplete = (req, res) => {
+  // currentProjects.findIndex(project => project.id == req.params.id);
+  currentProjects.splice(
+    currentProjects.findIndex(project => project.id == req.params.id),
+    1
+  );
+  res.status(200).json(currentProjects);
+};
 
 module.exports = {
   postFutureProjects,
   getFutureProjects,
   bidWon,
-  getCurrentProjects
+  getCurrentProjects,
+  markComplete
 };

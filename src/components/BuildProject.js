@@ -25,20 +25,23 @@ export class BuildProject extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    axios.post("/api/futureProjects", {
-      jobSiteName: this.state.jobSiteName,
-      jobSiteImage: this.state.jobSiteImage,
-      jobSiteAddress: this.state.jobSiteAddress,
-      budget: this.state.budget,
-      gcNotes: this.state.gcNotes
-    })
-    .then(response => this.setState({
-      jobSiteName: "",
-      jobSiteImage: "",
-      jobSiteAddress: "",
-      budget: "",
-      gcNotes: ""
-    }));
+    axios
+      .post("/api/futureProjects", {
+        jobSiteName: this.state.jobSiteName,
+        jobSiteImage: this.state.jobSiteImage,
+        jobSiteAddress: this.state.jobSiteAddress,
+        budget: this.state.budget,
+        gcNotes: this.state.gcNotes
+      })
+      .then(response =>
+        this.setState({
+          jobSiteName: "",
+          jobSiteImage: "",
+          jobSiteAddress: "",
+          budget: "",
+          gcNotes: ""
+        })
+      );
   }
 
   render() {
@@ -46,7 +49,7 @@ export class BuildProject extends Component {
     let { onSubmit } = this;
     return (
       <div>
-              <form>
+        <form>
           <label>
             Project Name:
             <input
@@ -70,7 +73,7 @@ export class BuildProject extends Component {
           </label>
 
           <label>
-            JobSite Address:
+            Project Address:
             <input
               onChange={change}
               placeholder="Jobsite Address"

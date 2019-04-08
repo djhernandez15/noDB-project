@@ -5,17 +5,17 @@ import BuildProject from "./BuildProject";
 
 export class Main extends Component {
   render() {
-    console.log("props", this.props.name);
     return (
       <main>
         {this.props.name === "currentProjects" ? (
           <CurrentProjects />
         ) : this.props.name === "futureProjects" ? (
           <FutureProjects />
-        ) : this.props.name === 'buildProject' ? (
-        <BuildProject />
-        ) : 'Start Building!'
-      }
+        ) : this.props.name === "buildProject" ? (
+          <BuildProject />
+        ) : (
+          <h2 style={{textAlign: "center"}}>Start Building!</h2>
+        )}
       </main>
     );
   }

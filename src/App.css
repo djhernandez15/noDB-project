@@ -20,11 +20,11 @@ nav {
   border-bottom: 2px solid #f9c546;
 }
 main {
-  height: 45vh;
+  height: 60vh;
   padding: 15px;
 }
 .btn {
-  height: 50px;
+  height: 40px;
   width: 300px;
   border-radius: 80px;
   background: #f9c546;
@@ -33,7 +33,6 @@ main {
   font-weight: 800;
 }
 footer {
-  margin-top: 10vh;
   text-align: center;
   padding: 5vh;
   color: #fff;
@@ -57,4 +56,14 @@ form {
 label {
   font-size: 20pt;
 }
-
+button {
+  height: 4vh;
+  width: 10vw;
+  border-radius: 12px;
+  background: #f9c546;
+  border: solid black;
+  font-size: 12pt;
+  font-weight: 800;
+  margin: auto;
+  padding: auto;
+}

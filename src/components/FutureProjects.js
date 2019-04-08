@@ -12,9 +12,14 @@ export class FutureProjects extends Component {
   }
 
   componentDidMount() {
-    Axios.get("/api/futureProjects").then(response => {
-      this.setState({ futureProjects: response.data });
-    });
+    Axios.get("/api/futureProjects")
+      .then(response => {
+        this.setState({ futureProjects: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+        alert("Sorry unexpected problem occured. Try again!");
+      });
   }
 
   deleteProject(id) {
@@ -25,7 +30,6 @@ export class FutureProjects extends Component {
   }
 
   render() {
-    
     return (
       <article>
         {this.state.futureProjects.map(project => (
@@ -35,8 +39,8 @@ export class FutureProjects extends Component {
             jobSiteAddress={project.jobSiteAddress}
             budget={project.budget}
             gcNotes={project.gcNotes}
-            deleteProject={() => this.deleteProject(project.id)}
             key={project.id}
+            deleteProject={() => this.deleteProject(project.id)}
             futureProjects={true}
           />
         ))}

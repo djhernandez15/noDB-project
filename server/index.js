@@ -13,6 +13,8 @@ app.delete("/api/futureProjects/:id", controllers.bidWon);
 
 app.get("/api/currentProjects", controllers.getCurrentProjects);
 
+app.delete("/api/currentProjects/:id", controllers.markComplete);
+
 const PORT = 5050;
 
 app.listen(PORT, () => console.log(`Hello on Port ${PORT}!`));

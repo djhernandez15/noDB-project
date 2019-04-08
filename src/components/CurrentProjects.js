@@ -9,11 +9,27 @@ export class CurrentProjects extends Component {
     this.state = {
       currentProjects: []
     };
+    this.markComplete = this.markComplete.bind(this);
   }
 
   componentDidMount() {
-    Axios.get("/api/currentProjects").then(response => {
-      console.log(response);
+    Axios.get("/api/currentProjects", {
+      params: {
+        jobSiteName: "Butler Brothers Bldg"
+      }
+    })
+      .then(response => {
+        console.log(response);
+        this.setState({ currentProjects: response.data });
+      })
+      .catch(error => {
+        console.log(error);
+        alert("Sorry unexpected problem occured. Try again!");
+      });
+  }
+
+  markComplete(id) {
+    Axios.delete("/api/currentProjects/" + id).then(response => {
       this.setState({ currentProjects: response.data });
     });
   }
@@ -22,14 +38,18 @@ export class CurrentProjects extends Component {
     return (
       <div>
         {this.state.currentProjects.map(project => (
-          <ProjectCard
-            jobSiteName={project.jobSiteName}
-            jobSiteImage={project.jobSiteImage}
-            jobSiteAddress={project.jobSiteAddress}
-            budget={project.budget}
-            gcNotes={project.gcNotes}
-            key={project.id}
-          />
+          <div>
+            <ProjectCard
+              jobSiteName={project.jobSiteName}
+              jobSiteImage={project.jobSiteImage}
+              jobSiteAddress={project.jobSiteAddress}
+              budget={project.budget}
+              gcNotes={project.gcNotes}
+              key={project.id}
+              markComplete={() => this.markComplete(project.id)}
+              currentProjects={true}
+            />
+          </div>
         ))}
       </div>
     );
