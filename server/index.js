@@ -5,15 +5,15 @@ const app = express();
 
 app.use(express.json());
 
-app.post("/api/futureProjects", controllers.postFutureProjects);
+app.post("/api/futureprojects", controllers.postFutureProjects);
 
-app.get("/api/futureProjects", controllers.getFutureProjects);
+app.get("/api/futureprojects", controllers.getFutureProjects);
 
-app.delete("/api/futureProjects/:id", controllers.bidWon);
+app.delete("/api/futureprojects/:id", controllers.bidWon);
 
-app.get("/api/currentProjects", controllers.getCurrentProjects);
+app.get("/api/currentprojects", controllers.getCurrentProjects);
 
-app.delete("/api/currentProjects/:id", controllers.markComplete);
+app.delete("/api/currentprojects/:id", controllers.markComplete);
 
 const PORT = 5050;
 
